@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2019 Lexmark International, Inc.
+ * Copyright (c) 2023 AMD-Xilinx, Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
+#include <arm/xilinx/zynqmp_rpu.dtsi>
+
+/ {
+	model = "QEMU Cortex-R5";
+	compatible = "xlnx,zynqmp-qemu";
+
+	flash1: flash@3ed00000 {
+		compatible = "mmio-sram";
+		reg = <0x3ed00000 DT_SIZE_K(256)>;
+	};
+
+	sram1: memory@0 {
+		compatible = "mmio-sram";
+		reg = <0 DT_SIZE_K(64)>;
+	};
+
+	chosen {
+		zephyr,sram = &sram1;
+		zephyr,flash = &flash1;
+		zephyr,console = &uart1;
+		zephyr,shell-uart = &uart1;
+	};
+};
+
+&rpu0_ipi {
+	status = "okay";
+};
+
+&uart1 {
+	status = "okay";
+	current-speed = <115200>;
+	clock-frequency = <99999901>;
+};
+
+&ttc0 {
+	status = "okay";
+	clock-frequency = <5000000>;
+};
