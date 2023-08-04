@@ -25,6 +25,13 @@
 			status = "disabled";
 			device_type = "cpu";
 			compatible = "arm,cortex-r5f";
+			reg = <0>;
+		};
+
+		cpu1: cpu@1 {
+			status = "disabled";
+			device_type = "cpu";
+			compatible = "arm,cortex-r5f";
 			reg = <1>;
 		};
 	};
