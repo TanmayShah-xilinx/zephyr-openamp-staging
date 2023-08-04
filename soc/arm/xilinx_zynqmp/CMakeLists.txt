@@ -9,3 +9,7 @@ zephyr_sources_ifdef(
   CONFIG_ARM_MPU
   arm_mpu_regions.c
 )
+zephyr_sources_ifdef(
+  CONFIG_ARM_CUSTOM_INTERRUPT_CONTROLLER
+  intc_gic_amp.c
+)
