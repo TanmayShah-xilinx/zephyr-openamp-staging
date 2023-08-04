@@ -6,7 +6,7 @@
  */
 
 /dts-v1/;
-#include <arm/xilinx/zynqmp_rpu.dtsi>
+#include <arm/xilinx/zynqmp_rpu0.dtsi>
 
 / {
 	model = "QEMU Cortex-R5";
@@ -15,19 +15,19 @@
 	chosen {
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
-		zephyr,console = &uart0;
-		zephyr,shell-uart = &uart0;
+		zephyr,console = &uart1;
+		zephyr,shell-uart = &uart1;
 		zephyr,ocm = &ocm;
 	};
 };
 
-&uart0 {
+&uart1 {
 	status = "okay";
 	current-speed = <115200>;
 	clock-frequency = <99999901>;
 };
 
-&ttc0 {
+&ttc1 {
 	status = "okay";
 	clock-frequency = <5000000>;
 };
